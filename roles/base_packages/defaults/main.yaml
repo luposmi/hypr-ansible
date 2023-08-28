@@ -1,0 +1,24 @@
+---
+packages:
+  # required to boot
+  - linux-lts
+  - base
+  - base-devel
+  # Virtual devices
+  - cryptsetup
+  - device-mapper
+  - lvm2
+  # Miscilaniues
+  - sudo
+  - python3
+  - man
+  - usbutils # lsusb
+  - zsh
+  # network
+  # - netctl
+  - dhcpcd
+  - networkmanager
+  - openssh
+  # show system information
+  - neofetch
+  - bashtop

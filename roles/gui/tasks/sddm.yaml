@@ -1,0 +1,22 @@
+---
+
+- name: create /etc/sddm.conf.d
+  file:
+    path: /etc/sddm.conf.d
+    state: directory
+
+- name: enable autologin
+  copy:
+    dest: /etc/sddm.conf.d/autologin.conf
+    content: |
+      [Autologin]
+      Relogin=false
+      User={{ mainuser }}
+      Session={{ autologin_session }}
+  when: autologin
+
+- name: disable autologin
+  file:
+    path: /etc/sddm.conf.d/autologin.conf
+    state: absent
+  when: autologin==false

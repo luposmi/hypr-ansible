@@ -1,0 +1,52 @@
+---
+- name: generate main user
+  become: true
+  user:
+    name: "{{ username }}"
+    state: present
+    uid: "{{ uid }}"
+    groups: wheel
+    password: "{{ '1234' | password_hash('sha512', 'mysecretsalt') }}"
+    password_lock: false
+
+    expires: -1
+    create_home: true
+    shell: /bin/zsh
+
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+
+- name: Enable sudo access for wheel group
+  become: true
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel\s+ALL=\(ALL\)\s+ALL'
+    line: '%wheel ALL=(ALL) ALL'
+    validate: 'visudo -cf %s'
+    backup: yes
+
+- name: Create common directories as {{ username}}
+  become: true
+  file:
+    path: "/home/{{ username }}/{{ item }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: "0755"
+  loop:
+    - Documents
+    - Downloads
+    - Music
+    - Pictures
+    - Videos
+    - Programs
+    - .config
+
+- name: copy config files
+  copy:
+    src: "{{ role_path}}/files/config/"
+    dest: "/home/{{username}}/.config/"
+    owner: "{{ username }}"
+    group: "{{ username }}"

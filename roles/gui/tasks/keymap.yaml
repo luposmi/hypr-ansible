@@ -1,0 +1,25 @@
+---
+- name: read entry for x11 xkb base.xml 
+  set_fact:
+    keymap_base_entry: "{{ lookup('file', '{{ role_path}}/files/keymap/base-snippet') }}"
+
+- name: Check if keymap entry is present, fails if not
+  ansible.builtin.shell: cat /usr/share/X11/xkb/rules/base.xml | grep "{{ keymap_base_entry }}"
+  register: keymap_entry_check
+  changed_when: false
+  failed_when: keymap_entry_check.rc == 2
+
+- name: input the entry into base.xml if not present
+  become: true
+  replace:
+    path: '/usr/share/X11/xkb/rules/base.xml'
+    regexp: '<layoutList>'
+    replace: "<layoutList>\n{{ keymap_base_entry }}"
+  when: keymap_entry_check.stdout_lines | length == 0
+
+- name: copy custom keymap into symbols
+  become: true
+  copy:
+    src: "{{ role_path}}/files/keymap/custom"
+    dest: '/usr/share/X11/xkb/symbols'
+    mode: "0544"

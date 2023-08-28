@@ -1,0 +1,12 @@
+---
+- name: install gui packages
+  become: true
+  pacman:
+    name: "{{ packages }}"
+    state: present
+
+- name: create custom keymap
+  include_tasks: keymap.yaml
+
+- name: set sddm theme
+  include_tasks: sddm.yaml
