@@ -1,11 +1,16 @@
 ---
+- name: Create a group with the same name as the user
+  become: true
+  group:
+    name: "{{ username }}"
+    state: present
 - name: generate main user
   become: true
   user:
     name: "{{ username }}"
     state: present
     uid: "{{ uid }}"
-    groups: wheel
+    groups: wheel, {{ username }}
     password: "{{ '1234' | password_hash('sha512', 'mysecretsalt') }}"
     password_lock: false
 
