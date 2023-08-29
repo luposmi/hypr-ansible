@@ -50,6 +50,7 @@
     - .config
 
 - name: copy config files
+  become: true
   copy:
     src: "{{ role_path}}/files/config/"
     dest: "/home/{{username}}/.config/"
