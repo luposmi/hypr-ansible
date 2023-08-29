@@ -1,11 +1,13 @@
 ---
 
 - name: create /etc/sddm.conf.d
+  become: true
   file:
     path: /etc/sddm.conf.d
     state: directory
 
 - name: enable autologin
+  become: true
   copy:
     dest: /etc/sddm.conf.d/autologin.conf
     content: |
@@ -16,6 +18,7 @@
   when: autologin
 
 - name: disable autologin
+  become: true
   file:
     path: /etc/sddm.conf.d/autologin.conf
     state: absent
