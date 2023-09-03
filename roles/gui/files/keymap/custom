@@ -47,7 +47,7 @@ xkb_symbols "basic" {
     key <AC11>  {[ apostrophe,   quotedbl,adiaeresis, Adiaeresis  ]};
     key <BKSL>  {[ backslash,   bar    ]};
 
-    key <AB01>	{ [         y,          y, guillemotleft,        less ]	};
+    key <AB01>	{ [         y,          Y, guillemotleft,        less ]	};
     key <AB02>	{ [         x,          X, guillemotright,    greater ]	};
     key <AB03>	{ [         c,          C,         cent,    copyright ]	};
     key <AB04>	{ [         v,          V,   doublelowquotemark, singlelowquotemark ]	};
