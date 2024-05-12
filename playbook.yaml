@@ -18,3 +18,4 @@
   roles: 
     - update_packages
     - base_packages
+    - gui
