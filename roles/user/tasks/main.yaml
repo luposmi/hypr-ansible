@@ -4,7 +4,8 @@
   group:
     name: "{{ username }}"
     state: present
-- name: generate main user
+
+- name: generate user
   become: true
   user:
     name: "{{ username }}"
