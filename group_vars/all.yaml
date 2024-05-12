@@ -1,3 +1,4 @@
 ---
 mainuser: main # eg sddm defaults on loging into this user
-is_wireless: true
+install_dev_packages: true
+install_wireless_packages: true

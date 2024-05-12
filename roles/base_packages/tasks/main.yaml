@@ -5,12 +5,19 @@
     name: "{{ packages }}"
     state: present
 
+- name: install development packages
+  become: true
+  pacman:
+    name: "{{ dev_packages }}"
+    state: present
+  when: install_dev_packages
+
 - name: install wireless packages
   become: true
   pacman:
     name: "{{ wireless_packages }}"
     state: present
-  when: is_wireless
+  when: install_wireless_packages
 
 - name: Check if running in a virtual machine
   set_fact:

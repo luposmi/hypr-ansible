@@ -11,6 +11,7 @@ packages:
   - sudo
   - python3
   - man
+  - tldr
   - usbutils # lsusb
   - zsh
   # network
@@ -20,6 +21,28 @@ packages:
   - neofetch
   - bashtop
 
+dev_packages:
+  # ARM
+  - arm-none-eabi-binutils
+  - arm_none-eabi-gcc
+  - arm-none-eabi-newlib
+  # C
+  - cmake
+  - gcc
+  - clang
+  # virtualisation
+  - docker
+  - docker-compose
+  - ansible
+  # other
+  - ffmpeg
+  - node
+  - zig
+  - rust
+  - ocaml
+  - ghc
+  - go
+  
 
 wireless_packages:
   - networkmanager
