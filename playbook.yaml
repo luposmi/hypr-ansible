@@ -6,25 +6,15 @@
     set_fact:
       is_virtual: "{{ ansible_virtualization_type is defined and ansible_virtualization_type != 'physical' }}"
 
-  - name: Import role for user management (user1)
+  - name: Create main user
     import_role:
       name: user
     vars:
       username: main
       towheel: true
-      uid: 1000
+      uid: 1005
+      chezmoi_repo: "https://github.com/luposmi/dotfiles"
 
-
-  - name: Import role for user management (user2)
-    import_role:
-      name: user
-    vars:
-      username: test
-      towheel: false
-      uid:
   roles: 
     - update_packages
     - base_packages
-    - user
-    #- gui
-    #sudo hostnamectl set-hostname mainpc
