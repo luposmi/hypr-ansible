@@ -16,6 +16,5 @@
       chezmoi_repo: "https://github.com/luposmi/dotfiles"
 
   roles: 
-    - update_packages
-    - base_packages
+    - system_config
     - gui

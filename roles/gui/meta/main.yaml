@@ -1,3 +1,3 @@
 ---
 dependencies:
-  - base_packages
+  - system_config 
