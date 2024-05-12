@@ -23,7 +23,7 @@ packages:
 dev_packages:
   # ARM
   - arm-none-eabi-binutils
-  - arm_none-eabi-gcc
+  - arm-none-eabi-gcc
   - arm-none-eabi-newlib
   # C
   - cmake
