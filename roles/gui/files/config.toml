@@ -1,0 +1,10 @@
+[terminal]
+vt = 1
+
+[initial_session]
+command = "/usr/bin/Hyprland"
+user = "main"
+
+[default_session]
+command = "tuigreet --remember --time --cmd /usr/bin/Hyprland"
+user = "main"

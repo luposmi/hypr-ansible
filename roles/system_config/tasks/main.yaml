@@ -1,0 +1,47 @@
+---
+- name: update packages
+  include_tasks: update_packages.yaml
+
+- name: install basic packages
+  become: true
+  pacman:
+    name: "{{ packages }}"
+    state: present
+
+- name: install development packages
+  become: true
+  pacman:
+    name: "{{ dev_packages }}"
+    state: present
+  when: install_dev_packages
+
+- name: install wireless packages
+  become: true
+  pacman:
+    name: "{{ wireless_packages }}"
+    state: present
+  when: install_wireless_packages
+
+- name: Check if running in a virtual machine
+  set_fact:
+    is_virtual: "{{ ansible_virtualization_type is defined and ansible_virtualization_type != 'physical' }}"
+
+- name: Install linux-firmware if not running in a virtual machine
+  become: true
+  pacman:
+    name: linux-firmware
+    state: present
+  when: not is_virtual
+
+- name: Start services if available
+  become: true
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true 
+  ignore_errors: true
+  loop:
+    - sshd
+    - dhcpcd
+    - NetworkManager
+    - wpa_supplicant

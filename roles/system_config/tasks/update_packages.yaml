@@ -1,0 +1,27 @@
+---
+#- name: Update package signing keys
+#  community.general.pacman_key:
+#    refresh: yes
+
+#- name: Synchronize package databases
+#  pacman:
+#    synchronize: yes
+- name: Get list of upgradable packages
+  command: "pacman -Qu"
+  register: pacman_updates
+  changed_when: false
+  failed_when: pacman_updates.rc == 2
+
+
+- name: update keyring
+  become: true
+  command: pacman -Sy archlinux-keyring  --noconfirm
+  when: pacman_updates.stdout_lines | length > 0
+
+
+- name: upgrade packages
+  become: true
+  pacman:
+    update_cache: yes
+    upgrade: yes
+  when: pacman_updates.stdout_lines | length > 0

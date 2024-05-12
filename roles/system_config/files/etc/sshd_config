@@ -1,0 +1,10 @@
+Port 22
+
+PermitRootLogin no
+KbdInteractiveAuthentication no
+LoginGraceTime 60
+
+
+AuthorizedKeysFile	.ssh/authorized_keys
+PrintMotd no
+Subsystem	sftp	/usr/lib/ssh/sftp-server
