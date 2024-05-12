@@ -8,3 +8,11 @@
 - name: create custom keymap
   include_tasks: keymap.yaml
 
+- name: Copy greetd config
+  become: true
+  copy:
+    src: files/config.toml
+    dest: /etc/greetd/config.toml
+    owner: root
+    group: root
+    mode: "0600"

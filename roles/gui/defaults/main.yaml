@@ -1,31 +1,24 @@
 ---
 packages:
+  - greetd
   # base
   - hyprland
   - hyprpaper
   - xdg-desktop-portal-hyprland
   - polkit-kde-agent
   - wl-clipboard
-  - sddm
-  # dmenu
-  - rofi
-  - rofimoji # emoji lookup using rofi 
-  # for waybar
-  - waybar
   - mpd  # todo: start/ enable daemon
   
   # else
   - mako # notification daemon
   - pipewire
   - polkit-kde-agent # if not used, remove start in hyprland config
-  - qt5-wayland
-  - qt6-wayland
-  - gnu-free-fonts
   # applications
-  - konsole # used by rofi for ssh
-  - kitty
-  - systemsettings
+  - rofi-wayland
+  - alacritty
+  - firefox
   # fonts
+  - gnu-free-fonts
   - otf-font-awesome
   - ttc-iosevka
 
