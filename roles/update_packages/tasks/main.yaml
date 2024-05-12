@@ -19,12 +19,9 @@
   when: pacman_updates.stdout_lines | length > 0
 
 
-- name: Update package cache
+- name: upgrade packages
   become: true
   pacman:
     update_cache: yes
-
-- name: Upgrade all packages'
-  become: true
-  pacman:
     upgrade: yes
+  when: pacman_updates.stdout_lines | length > 0
