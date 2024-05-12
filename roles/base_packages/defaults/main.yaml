@@ -1,13 +1,12 @@
 ---
 packages:
   # required to boot
-  - linux-lts
+  - linux
   - base
   - base-devel
   # Virtual devices
   - cryptsetup
-  - device-mapper
-  - lvm2
+  - btrfs-progs
   # Miscilaniues
   - sudo
   - python3
@@ -15,10 +14,13 @@ packages:
   - usbutils # lsusb
   - zsh
   # network
-  # - netctl
   - dhcpcd
-  - networkmanager
   - openssh
   # show system information
   - neofetch
   - bashtop
+
+
+wireless_packages:
+  - networkmanager
+  - wpa_supplicant

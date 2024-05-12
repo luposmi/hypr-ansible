@@ -1,2 +1,3 @@
 ---
 mainuser: main # eg sddm defaults on loging into this user
+is_wireless: true

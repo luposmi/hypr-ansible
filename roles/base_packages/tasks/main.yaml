@@ -5,6 +5,13 @@
     name: "{{ packages }}"
     state: present
 
+- name: install wireless packages
+  become: true
+  pacman:
+    name: "{{ wireless_packages }}"
+    state: present
+  when: is_wireless
+
 - name: Check if running in a virtual machine
   set_fact:
     is_virtual: "{{ ansible_virtualization_type is defined and ansible_virtualization_type != 'physical' }}"
@@ -27,6 +34,4 @@
     - sshd
     - dhcpcd
     - NetworkManager
-
-
-#sudo hostnamectl set-hostname mainpc
+    - wpa_supplicant
