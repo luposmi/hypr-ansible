@@ -4,10 +4,11 @@ packages:
   - linux
   - base
   - base-devel
-  # Virtual devices
+  # virtual devices
   - cryptsetup
   - btrfs-progs
-  # Miscilaniues
+  # miscellaneous
+  - git
   - neovim
   - chezmoi
   - sudo
