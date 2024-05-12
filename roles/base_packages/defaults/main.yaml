@@ -8,6 +8,7 @@ packages:
   - cryptsetup
   - btrfs-progs
   # Miscilaniues
+  - neovim
   - sudo
   - python3
   - man
@@ -17,9 +18,6 @@ packages:
   # network
   - dhcpcd
   - openssh
-  # show system information
-  - neofetch
-  - bashtop
 
 dev_packages:
   # ARM
