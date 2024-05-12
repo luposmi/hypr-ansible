@@ -25,6 +25,6 @@
   roles: 
     - update_packages
     - base_packages
-    #- user
-    - gui
+    - user
+    #- gui
     #sudo hostnamectl set-hostname mainpc
