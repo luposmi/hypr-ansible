@@ -16,3 +16,9 @@
     owner: root
     group: root
     mode: "0600"
+
+- name: start greetd service
+  become: true
+  service:
+    name: greetd
+    enabled: true
