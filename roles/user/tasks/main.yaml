@@ -33,14 +33,14 @@
     validate: 'visudo -cf %s'
     backup: yes
 
-- name: Create common directories as {{ username}}
+- name: Create common directories as {{ username }}
   become: true
   file:
     path: "/home/{{ username }}/{{ item }}"
     state: directory
     owner: "{{ username }}"
     group: "{{ username }}"
-    mode: "0755"
+    mode: "0700"
   loop:
     - Documents
     - Downloads
@@ -49,43 +49,13 @@
     - Videos
     - Programs
     - repos
-    - .config
 
-- name: copy config files
-  become: true
-  copy:
-    src: "{{ role_path}}/files/config/"
-    dest: "/home/{{username}}/.config/"
-    owner: "{{ username }}"
-    group: "{{ username }}"
+- name: Clone config repo
+  ansible.builtin.git:
+    repo: "{{ chezmoi_repo }}"
+    dest: /home/{{ username }}/.local/share/chezmoi
+  register: chezmoi_git_result
 
-- name: copy config files
-  become: true
-  copy:
-    src: "{{ role_path}}/files/zshrc"
-    dest: "/home/{{username}}/.zshrc"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-
-- name: Clone eww repository
-  become: true
-  become_user: "{{ username }}"
-  git:
-    repo: https://github.com/elkowar/eww
-    dest: "/home/{{ username }}/Programs/eww"
-    update: yes
-  register: eww_git
-
-#- name: Build eww
-#  command: cargo build --release
-#  args:
-#    chdir: "/home/{{ username }}/Programs/eww"
-#  when: eww_git.changed
-
-- name: Install eww
-  become: true
-  become_user: "{{ username }}"
-  command: cargo install --path crates/eww --force --no-default-features --features=wayland
-  args:
-    chdir: "/home/{{ username }}/Programs/eww"
-  when: eww_git.changed
+- name: Apply config with chezmoi
+  command: chezmoi apply
+  when: chezmoi_git_result.changed

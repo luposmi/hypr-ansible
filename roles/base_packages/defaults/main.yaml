@@ -9,6 +9,7 @@ packages:
   - btrfs-progs
   # Miscilaniues
   - neovim
+  - chezmoi
   - sudo
   - python3
   - man
