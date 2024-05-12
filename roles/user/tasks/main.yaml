@@ -52,11 +52,15 @@
     - repos
 
 - name: Clone config repo
+  become: true
+  become_user: "{{ username }}"
   ansible.builtin.git:
     repo: "{{ chezmoi_repo }}"
     dest: /home/{{ username }}/.local/share/chezmoi
   register: chezmoi_git_result
 
 - name: Apply config with chezmoi
+  become: true
+  become_user: "{{ username }}"
   command: chezmoi apply
   when: chezmoi_git_result.changed
