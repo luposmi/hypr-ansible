@@ -1,0 +1,8 @@
+---
+- name: configure packman
+  become: true
+  copy:
+    src: files/etc/pacman.conf
+    dest: /etc/pacman.conf
+    mode: "0600"
+

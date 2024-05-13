@@ -45,3 +45,7 @@
     - dhcpcd
     - NetworkManager
     - wpa_supplicant
+
+
+- name: apply configuration
+  include_tasks: config.yaml
