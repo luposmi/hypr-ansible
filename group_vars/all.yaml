@@ -2,3 +2,5 @@
 mainuser: main # eg sddm defaults on loging into this user
 install_dev_packages: true
 install_wireless_packages: true
+
+enable_apparmor: true

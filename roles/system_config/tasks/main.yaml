@@ -49,3 +49,6 @@
 
 - name: apply configuration
   include_tasks: config.yaml
+
+- name: enable or disable apparmor
+  include_tasks: apparmor.yaml

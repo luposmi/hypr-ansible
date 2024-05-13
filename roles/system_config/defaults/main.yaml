@@ -12,7 +12,7 @@ packages:
   - neovim
   - chezmoi
   - sudo
-  - python3
+  - python
   - man
   - tldr
   - usbutils # lsusb
@@ -20,6 +20,8 @@ packages:
   # network
   - dhcpcd
   - openssh
+  # security
+  - apparmor
 
 dev_packages:
   # ARM

@@ -24,4 +24,3 @@
   pacman:
     update_cache: yes
     upgrade: yes
-  when: pacman_updates.stdout_lines | length > 0
