@@ -10,6 +10,7 @@ packages:
   # miscellaneous
   - git
   - neovim
+  - flatpak
   - chezmoi
   - sudo
   - python

@@ -5,6 +5,9 @@
     name: "{{ packages }}"
     state: present
 
+- name: Manage flatpak packages
+  include_tasks: flatpak.yaml
+
 - name: create custom keymap
   include_tasks: keymap.yaml
 

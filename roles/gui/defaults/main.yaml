@@ -22,6 +22,20 @@ packages:
   - otf-font-awesome
   - ttc-iosevka
 
+flatpak_packages:
+  - com.discordapp.Discord
+  - com.github.xournalpp.xournalpp
+  - io.gitlab.librewolf-community
+  - com.valvesoftware.Steam
+  - md.obsidian.Obsidian
+  - org.libreoffice.LibreOffice 
+  - org.kde.krita
+  - org.inkscape.Inkscape
+  - org.godotengine.Godot
+  - org.blender.Blender
+  - org.openscad.OpenSCAD
+  - org.kde.elisa
+  - com.obsproject.Studio
 
 dependencies:
   - gsound

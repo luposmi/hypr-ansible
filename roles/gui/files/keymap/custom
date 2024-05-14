@@ -26,7 +26,7 @@ xkb_symbols "basic" {
     key <AD03>	{ [         e,          E,     EuroSign,     EuroSign ]	};
     key <AD04>	{ [         r,          R,    paragraph,   registered ]	};
     key <AD05>	{ [         t,          T,       tslash,       Tslash ]	};
-    key <AD06>	{ [         z,          Z,    leftarrow,          yen ]	};
+    key <AD06>	{ [         y,          Y,    leftarrow,          yen ]	};
     key <AD07>	{ [         u,          U,    downarrow,      uparrow ]	};
     key <AD08>	{ [         i,          I,   rightarrow,     idotless ]	};
     key <AD09>	{ [         o,          O,       oslash,       Oslash ]	};
@@ -47,7 +47,7 @@ xkb_symbols "basic" {
     key <AC11>  {[ apostrophe,   quotedbl,adiaeresis, Adiaeresis  ]};
     key <BKSL>  {[ backslash,   bar    ]};
 
-    key <AB01>	{ [         y,          Y, guillemotleft,        less ]	};
+    key <AB01>	{ [         z,          Z, guillemotleft,        less ]	};
     key <AB02>	{ [         x,          X, guillemotright,    greater ]	};
     key <AB03>	{ [         c,          C,         cent,    copyright ]	};
     key <AB04>	{ [         v,          V,   doublelowquotemark, singlelowquotemark ]	};
