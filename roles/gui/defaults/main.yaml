@@ -16,7 +16,6 @@ packages:
   # applications
   - rofi-wayland
   - alacritty
-  - firefox
   # fonts
   - gnu-free-fonts
   - otf-font-awesome
