@@ -9,6 +9,8 @@ packages:
   - wl-clipboard
   - mpd  # todo: start/ enable daemon
   - playerctl
+  - grim # grim and slurp for screenshot
+  - slurp
   
   # else
   - mako # notification daemon
