@@ -8,6 +8,7 @@ packages:
   - polkit-kde-agent
   - wl-clipboard
   - mpd  # todo: start/ enable daemon
+  - playerctl
   
   # else
   - mako # notification daemon
