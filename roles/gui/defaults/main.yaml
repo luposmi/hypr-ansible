@@ -11,6 +11,7 @@ packages:
   - playerctl
   - grim # grim and slurp for screenshot
   - slurp
+  - atuin
   
   # else
   - mako # notification daemon
