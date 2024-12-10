@@ -24,6 +24,9 @@ packages:
   - gnu-free-fonts
   - otf-font-awesome
   - ttc-iosevka
+  # latex compile
+  - texlive-meta
+  - zathura
 
 flatpak_packages:
   - com.discordapp.Discord
