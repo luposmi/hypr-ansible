@@ -18,6 +18,7 @@ packages:
   - tldr
   - usbutils # lsusb
   - zsh
+  - direnv
   # network
   - dhcpcd
   - openssh
