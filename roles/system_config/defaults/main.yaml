@@ -46,6 +46,8 @@ dev_packages:
   - ocaml
   - ghc
   - go
+# nvim
+  - python-pylatexenc
   
 
 wireless_packages:
