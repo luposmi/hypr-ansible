@@ -25,6 +25,7 @@ packages:
   - alacritty
   - zellij
   - firefox
+  - syncthing
   # fonts
   - gnu-free-fonts
   - otf-font-awesome

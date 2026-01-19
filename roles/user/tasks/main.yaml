@@ -63,3 +63,12 @@
   become_user: "{{ username }}"
   command: chezmoi apply
   when: chezmoi_git_result.changed
+
+- name: start syncthing
+  become: true
+  become_user: "{{ username }}"
+  ansible.builtin.systemd_service:
+    name: syncthing.service
+    state: started
+    enabled: true
+    scope: user
