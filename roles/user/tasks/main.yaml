@@ -12,7 +12,6 @@
     state: present
     uid: "{{ uid }}"
     groups: wheel, {{ username }}
-    password: "{{ '1234' | password_hash('sha512', 'mysecretsalt') }}"
     update_password: "on_create"
     password_lock: false
 
