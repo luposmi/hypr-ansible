@@ -31,17 +31,20 @@ packages:
 flatpak_packages:
   - com.discordapp.Discord
   - com.github.xournalpp.xournalpp
-  - io.gitlab.librewolf-community
+  - com.obsproject.Studio
   - com.valvesoftware.Steam
   - md.obsidian.Obsidian
-  - org.libreoffice.LibreOffice 
-  - org.kde.krita
-  - org.inkscape.Inkscape
-  - org.godotengine.Godot
+  - info.beyondallreason.bar
   - org.blender.Blender
-  - org.openscad.OpenSCAD
+  - org.godotengine.Godot
+  - org.inkscape.Inkscape
   - org.kde.elisa
-  - com.obsproject.Studio
+  - org.kde.krita
+  - org.libreoffice.LibreOffice 
+  - org.openscad.OpenSCAD
+  - org.signal.Signal
+  - org.yuzu_emu.yuzu
+  - net.ankiweb.Anki
 
 dependencies:
   - gsound
