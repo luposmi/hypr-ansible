@@ -24,7 +24,7 @@
 
 - name: Check if running in a virtual machine
   set_fact:
-    is_virtual: "{{ ansible_virtualization_type is defined and ansible_virtualization_type != 'physical' }}"
+    is_virtual: "{{ ansible_facts.virtualization_type is defined and ansible_facts.virtualization_type != 'physical' }}"
 
 - name: Install linux-firmware if not running in a virtual machine
   become: true

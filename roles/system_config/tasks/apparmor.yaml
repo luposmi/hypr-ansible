@@ -2,7 +2,7 @@
 - name: make sure cmdline directory exists
   become: true
   file:
-    path: /etc/cmdline
+    path: /etc/cmdline.d
     state: directory
 
 - name: copy kernel parameters
@@ -10,7 +10,7 @@
   copy:
     src: files/security.conf
     dest: /etc/cmdline.d/security.conf
-  when: "{{ enable_apparmor }}"
+  when: enable_apparmor
   notify: recreate ramdisk
 
 - name: delete security config
@@ -18,11 +18,11 @@
   file:
     path: /etc/cmdline.d/security.conf
     state: absent
-  when: not "{{ enable_apparmor }}"
+  when: not enable_apparmor
   notify: recreate ramdisk
 
 - name: enable apparmor
   become: true
   service:
     name: apparmor
-    enabled: "{{ enable_apparmor }}"
+    enabled: "{{ enable_apparmor | bool }}"

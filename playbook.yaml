@@ -2,9 +2,6 @@
 - hosts: all
 
   tasks:
-  - name: Check if running in a virtual machine
-    set_fact:
-      is_virtual: "{{ ansible_virtualization_type is defined and ansible_virtualization_type != 'physical' }}"
 
   - name: Create main user
     import_role:

@@ -1,7 +1,7 @@
 ---
 - name: read entry for x11 xkb base.xml 
   set_fact:
-    keymap_base_entry: "{{ lookup('file', '{{ role_path}}/files/keymap/base-snippet') }}"
+    keymap_base_entry: "{{ lookup('file', role_path ~ '/files/keymap/base-snippet') }}"
 
 - name: Check if keymap entry is present, fails if not
   ansible.builtin.shell: cat /usr/share/X11/xkb/rules/base.xml | grep "{{ keymap_base_entry }}"
