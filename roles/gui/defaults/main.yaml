@@ -1,6 +1,7 @@
 ---
 packages:
   - greetd
+  - greetd-tuigreet
   # base
   - hyprland
   - hyprpaper
@@ -19,7 +20,10 @@ packages:
   - polkit-kde-agent # if not used, remove start in hyprland config
   # applications
   - rofi-wayland
+  - rofimoji
+  - waybar
   - alacritty
+  - zellij
   # fonts
   - gnu-free-fonts
   - otf-font-awesome
