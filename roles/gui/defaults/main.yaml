@@ -23,7 +23,7 @@ packages:
   # fonts
   - gnu-free-fonts
   - otf-font-awesome
-  - ttc-iosevka
+  - ttf-iosevkaterm-nerd
   # latex compile
   - texlive-meta
   - zathura
