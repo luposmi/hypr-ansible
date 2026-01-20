@@ -19,6 +19,12 @@ packages:
   - usbutils # lsusb
   - zsh
   - direnv
+  - zip
+  - unzip
+  - fzf
+  - htop
+  - devtools
+
   # network
   - dhcpcd
   - openssh
