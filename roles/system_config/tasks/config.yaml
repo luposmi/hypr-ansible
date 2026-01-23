@@ -1,8 +1,10 @@
 ---
-- name: configure packman
-  become: true
-  copy:
-    src: files/etc/pacman.conf
-    dest: /etc/pacman.conf
-    mode: "0600"
-
+- name: copy 
+  become: yes
+  ansible.builtin.copy:
+      src: files/etc/
+      dest: /etc/
+      owner: root
+      group: root
+      mode: 'preserve'
+      decrypt: true
