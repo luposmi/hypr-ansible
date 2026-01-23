@@ -34,3 +34,10 @@
   service:
     name: greetd
     enabled: true
+
+- name: start bluetooth service
+  become: true
+  service:
+    name: bluetooth
+    enabled: true
+
