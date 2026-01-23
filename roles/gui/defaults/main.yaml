@@ -17,6 +17,11 @@ packages:
   - pulseaudio
   - pulseaudio-bluetooth
   - bluez
+  - bluez-utils
+  # I3 backup
+  - xorg
+  - xorg-xinit
+  - i3
   
   # else
   - mako # notification daemon
