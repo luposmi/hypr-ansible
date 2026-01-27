@@ -11,6 +11,7 @@
       towheel: true
       uid: 1005
       chezmoi_repo: "https://github.com/luposmi/dotfiles"
+      # TODO: change to git@github.com:luposmi/dotfiles.git if available
 
   roles: 
     - system_config
