@@ -24,6 +24,7 @@ packages:
   - fzf
   - htop
   - devtools
+  - ripgrep # used by nvim/telescope/live_grep
 
   # network
   - dhcpcd
