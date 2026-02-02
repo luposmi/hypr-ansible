@@ -41,6 +41,11 @@ packages:
   - otf-font-awesome
   - ttf-iosevkaterm-nerd
   - adobe-source-han-sans-cn-fonts
+  # chinese input
+  - fcitx5-im
+  - fcitx5-lua
+  - fcitx5-pinyin-zhwiki
+  - fcitx5-chinese-addons
   # latex compile
   - texlive-meta
   - zathura
