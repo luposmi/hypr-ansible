@@ -8,3 +8,14 @@
       group: root
       mode: 'preserve'
       decrypt: true
+
+- name: copy logind.conf
+  become: yes
+  ansible.builtin.copy:
+      src: files/logind.conf
+      dest: /etc/systemd/logind.conf
+      owner: root
+      group: root
+      mode: 'preserve'
+      decrypt: true
+  when: laptop

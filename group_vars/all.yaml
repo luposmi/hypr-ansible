@@ -4,3 +4,4 @@ install_dev_packages: true
 install_wireless_packages: true
 
 enable_apparmor: true
+laptop: false
