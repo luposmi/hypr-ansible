@@ -20,8 +20,24 @@
     group: root
     mode: "0600"
 
+- name: Copy touchpad config for xorg
+  become: true
+  copy:
+    src: files/30-touchpad.conf
+    dest: /etc/greetd/30-touchpad.conf
+    owner: root
+    group: root
+    mode: "0600"
+
 - name: start greetd service
   become: true
   service:
     name: greetd
     enabled: true
+
+- name: start bluetooth service
+  become: true
+  service:
+    name: bluetooth
+    enabled: true
+

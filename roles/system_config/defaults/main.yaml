@@ -19,6 +19,13 @@ packages:
   - usbutils # lsusb
   - zsh
   - direnv
+  - zip
+  - unzip
+  - fzf
+  - htop
+  - devtools
+  - ripgrep # used by nvim/telescope/live_grep
+
   # network
   - dhcpcd
   - openssh

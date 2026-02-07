@@ -64,6 +64,14 @@
   command: chezmoi apply
   when: chezmoi_git_result.changed
 
+- name: link chezmoi to home dir
+  become: true
+  become_user: "{{ username }}"
+  file:
+   src: /home/{{ username }}/.local/share/chezmoi
+   dest: "/home/{{ username }}/chezmoi"
+   state: link
+
 - name: start syncthing
   become: true
   become_user: "{{ username }}"

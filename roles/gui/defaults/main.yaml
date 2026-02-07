@@ -10,9 +10,18 @@ packages:
   - wl-clipboard
   - mpd  # todo: start/ enable daemon
   - playerctl
+  - brightnessctl
   - grim # grim and slurp for screenshot
   - slurp
   - atuin
+  - pulseaudio
+  - pulseaudio-bluetooth
+  - bluez
+  - bluez-utils
+  # I3 backup
+  - xorg
+  - xorg-xinit
+  - i3
   
   # else
   - mako # notification daemon
@@ -22,6 +31,7 @@ packages:
   - rofi-wayland
   - rofimoji
   - waybar
+  - swaylock
   - alacritty
   - zellij
   - firefox
@@ -30,6 +40,7 @@ packages:
   - gnu-free-fonts
   - otf-font-awesome
   - ttf-iosevkaterm-nerd
+  - adobe-source-han-sans-cn-fonts
   # latex compile
   - texlive-meta
   - zathura
