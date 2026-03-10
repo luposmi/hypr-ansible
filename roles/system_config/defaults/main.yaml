@@ -28,6 +28,7 @@ packages:
   - yt-dlp
 
   # network
+  - openvpn
   - dhcpcd
   - openssh
   # security
