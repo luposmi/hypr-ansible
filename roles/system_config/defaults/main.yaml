@@ -55,6 +55,9 @@ dev_packages:
   - ghc
   - go
 # nvim
+  - nvim
+  - tree-sitter
+  - tree-sitter-cli
   - python-pylatexenc
   
 
