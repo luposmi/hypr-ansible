@@ -52,7 +52,7 @@ dev_packages:
   - ffmpeg
   - nodejs
   - zig
-  - rust
+  - rustup
   - ocaml
   - ghc
   - go
