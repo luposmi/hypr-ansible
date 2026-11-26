@@ -24,10 +24,10 @@
   become: true
   copy:
     src: files/30-touchpad.conf
-    dest: /etc/greetd/30-touchpad.conf
+    dest: /etc/X11/xorg.conf.d/30-touchpad.conf
     owner: root
     group: root
-    mode: "0600"
+    mode: "0644"
 
 - name: start greetd service
   become: true
