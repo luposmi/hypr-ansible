@@ -1,1 +1,6 @@
 ---
+# Release identifier from https://antigravity.google/download.
+antigravity_app_release: "2.35.2-4585983447007232"
+antigravity_app_platforms:
+  x86_64: linux-x64
+  aarch64: linux-arm

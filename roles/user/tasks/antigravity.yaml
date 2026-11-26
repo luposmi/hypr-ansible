@@ -1,0 +1,69 @@
+---
+- name: Install Antigravity installer dependencies
+  become: true
+  ansible.builtin.pacman:
+    name:
+      - bash
+      - curl
+      - gzip
+      - tar
+    state: present
+
+- name: Install Antigravity desktop app and CLI as {{ username }}
+  become: true
+  become_user: "{{ username }}"
+  environment:
+    HOME: "/home/{{ username }}"
+  block:
+    - name: Check Antigravity desktop platform support
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.architecture in antigravity_app_platforms
+        fail_msg: "Antigravity desktop requires x86_64 or aarch64 Linux."
+
+    - name: Create Antigravity installation directories
+      ansible.builtin.file:
+        path: "/home/{{ username }}/{{ item }}"
+        state: directory
+        mode: "0755"
+      loop:
+        - .local/bin
+        - .local/share/antigravity-app
+        - .local/share/applications
+
+    # Google distributes the desktop app as a tarball; its install script is CLI-only.
+    - name: Install Antigravity desktop from the official archive
+      ansible.builtin.unarchive:
+        src: "https://storage.googleapis.com/antigravity-public/antigravity-hub/{{ antigravity_app_release }}/{{ antigravity_app_platforms[ansible_facts.architecture] }}/Antigravity.tar.gz"
+        dest: "/home/{{ username }}/.local/share/antigravity-app"
+        remote_src: true
+        extra_opts:
+          - --strip-components=1
+        creates: "/home/{{ username }}/.local/share/antigravity-app/antigravity"
+
+    - name: Link the Antigravity desktop executable
+      ansible.builtin.file:
+        src: "/home/{{ username }}/.local/share/antigravity-app/antigravity"
+        dest: "/home/{{ username }}/.local/bin/antigravity"
+        state: link
+
+    - name: Add Antigravity to the application launcher
+      ansible.builtin.copy:
+        dest: "/home/{{ username }}/.local/share/applications/antigravity.desktop"
+        mode: "0644"
+        content: |
+          [Desktop Entry]
+          Type=Application
+          Name=Antigravity
+          Comment=Google Antigravity desktop app
+          Exec="/home/{{ username }}/.local/bin/antigravity" %U
+          Terminal=false
+          Categories=Development;
+
+    - name: Install Antigravity CLI using the official install script
+      ansible.builtin.shell: |
+        set -o pipefail
+        curl -fsSL https://antigravity.google/cli/install.sh | bash -s -- --dir {{ ('/home/' ~ username ~ '/.local/bin') | quote }}
+      args:
+        executable: /bin/bash
+        creates: "/home/{{ username }}/.local/bin/agy"

@@ -72,6 +72,10 @@
    dest: "/home/{{ username }}/chezmoi"
    state: link
 
+- name: Install Antigravity for the main user
+  import_tasks: antigravity.yaml
+  when: username == mainuser
+
 - name: start syncthing
   become: true
   become_user: "{{ username }}"
